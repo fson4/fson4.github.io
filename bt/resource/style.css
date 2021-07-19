@@ -1,0 +1,89 @@
+html, body { width: 100%; height: 100%; font: 400 16px/1.2 inter, sans-serif; background: #000; color: #fff; text-align: center; cursor: default; touch-action: none; -webkit-user-select: none; user-select: none; overflow: hidden }
+body, ul, ol, p { padding: 0; margin: 0 }
+body, .panel { display: grid; place-items: start center }
+body { grid-template: 30% 40% 30% / 20% 60% 20% }
+.esc, .screen, .result li { position: relative } 
+li::before, .screen::after, .esc::after, .match-li-2::before { position: absolute }
+.screen::after, .esc::after, .match-li-2::before { content: "" }
+
+.stimulus, .box, .match { border-radius: .2em }
+.stimulus, .panel { grid-area: 2 / 2 }
+.stimulus { width: .7em; height: .7em; font-size: 22em; font-weight: 500; line-height: 1; margin-top: -7% }
+.stimulus.color { margin-top: -2% }
+.panel { grid-template: repeat(3, 1fr) / repeat(3, 1fr); gap: .4em .5em; --box: 112px; font-weight: 500; font-size: 5.15em; line-height: 1.35; margin-top: -12% }
+.panel.color { margin-top: -8% }
+.box { background: #444; border: 2px solid #000; width: var(--box); height: var(--box) }
+.hide { display: none }
+.esc, .esc::after { width: 2em; height: 2em }
+.esc { padding: .2em .2em 0 0 }
+.esc::after { left: 0; background: #f00; clip-path: polygon(15% 0, 0 15%, 35% 50%, 0 85%, 15% 100%, 50% 65%, 85% 100%, 100% 85%, 65% 50%, 100% 15%, 85% 0, 50% 35%) }
+.no-1.color { background: #070 }
+.no-2.color { background: #e11 }
+.no-3.color { background: #11e }
+.no-4.color { background: #ed0 }
+.no-5.color { background: #808 }
+.no-6.color { background: #b51 }
+.no-7.color { background: #874 }
+.no-8.color { background: #56a }
+.no-9.color { background: #4ed }
+
+.level { grid-area: 1 / 1; place-self: start; margin: 16px 0 0 16px }
+.speaker { grid-area: 1 / 2; margin: 16px 0 0 }
+.alt { grid-area: 1 / 3; place-self: start end; margin: 16px 16px 0 0 }
+.result { grid-area: 2 / 2 }
+.help, .esc { grid-area: 3 / 1; place-self: end start; margin: 0 0 16px 16px }
+.circle { grid-area: 3 / 2; place-self: end center; margin: 0 0 16px }
+.screen { grid-area: 3 / 3; place-self: end; margin: 0 16px 16px 0 }
+p, ul { white-space: nowrap }
+p, .result { background: #444; border: 1px solid #fff9 }
+p, .result li { text-shadow: .12em .1em 0 #000 }
+p { min-width: 2.1em; line-height: 2; font-size: 1.5em; border-radius: .2em }
+ol, ul { list-style: none }
+ol { text-align: left }
+ol { counter-reset: ol; margin: .5em 1.7em .9em 2.5em; font-size: .83em; line-height: 1.7; font-weight: 400 }
+ol li::before { counter-increment: ol; content: counter(ol) "."; margin-left: -1.7em; text-align: right; width: 1em }
+.level, .circle { z-index: 10 }
+.speaker { font-size: 1.6em }
+.alt, .level { width: 4.8em; font-size: 1.9em; line-height: 1.6 }
+.help { font-weight: 500; z-index: 20 }
+.screen { width: 32px; height: 32px; box-sizing: border-box; border: 4px solid #999; transform-origin: bottom right }
+.screen::after { top: -5px; left: -5px; width: 34px; height: 34px; background: #000; clip-path: polygon(0 31%, 31% 31%, 31% 0, 69% 0, 69% 31%, 100% 31%, 100% 69%, 69% 69%, 69% 100%, 31% 100%, 31% 69%, 0 69%) }
+.result { margin-top: -2.5em; font-size: 1.2em; border: .1em solid; border-radius: .8em; box-shadow: 0 0 6em #666, 0 0 2em #ccc }
+.result li { margin: .6em 1em; font-size: 1.7em; font-weight: 640 }
+.result li:nth-child(1) { font-size: 2em; font-variant: no-contextual }
+.result li:nth-child(2) { margin-top: -.1em }
+.result li.complete:nth-child(2) { color: #2b2 }
+.result li:last-child:not(.match-li-2) { margin: -.05em 1em .8em }
+.match-li-2 { margin-top: -.3em }
+.match-li-2::before { color: #fff; box-shadow: .12em .1em 0 #000; background: #fff; top: -28%; left: 12%; width: 76%; height: 2px }
+.match { display: inline-block; width: .9em; height: 1.05em; margin: .1em .06em }
+.match.color { vertical-align: middle }
+.wrong { color: #f00 }
+.circle { --circle: 156px; --fill: radial-gradient(#000 53%, transparent 54%); width: var(--circle); height: var(--circle); border-radius: 50%; background: var(--fill), #fff }
+p.active, p.active ol { color: #999 }
+.esc.active::after { background: #444 }
+.screen.active { border-color: #f00 }
+.circle.active { background: var(--fill), #444 }
+.box.active { color: #000 }
+.active:not(.screen):not(.color) { border-color: #04d } 
+.color.active { opacity: .4 }
+
+@media (orientation: portrait) { .panel { margin-top: -30% } .panel.color { margin-top: -22% }}
+@media (max-width: 1600px) {
+.stimulus { font-size: 17em }
+.panel { --box: 88px; font-size: 4em }	
+.esc, .esc::after { width: 1.5em; height: 1.5em }
+p { font-size: 1.2em }
+.speaker { font-size: 1.3em }
+.alt, .level { font-size: 1.5em }
+.screen { transform: scale(.8125) }
+.result { font-size: 1em }
+.circle { --circle: 120px }
+}
+@media (max-width: 1020px) {
+.stimulus { font-size: 12em }
+.panel { --box: 72px; font-size: 3.35em }
+.alt, .level { font-size: 1.4em }
+.result { font-size: .84em }
+.circle { --circle: 94px }
+}

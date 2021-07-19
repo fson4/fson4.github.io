@@ -1,0 +1,14 @@
+{
+	"name": "Memory Task",
+	"short_name": "Memory Task",
+	"description": "A web application memory game",
+	"start_url": "https://fson4.github.io/mt/",
+	"scope": "https://fson4.github.io/mt/",
+	"display": "standalone",
+	"background_color": "#000",
+	"theme_color": "#000",
+	"icons": [
+		{ "src": "resource/img/icon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any maskable" },
+		{ "src": "resource/img/icon.png", "type": "image/png", "sizes": "192x192 512x512", "purpose": "any maskable" }
+	]
+}

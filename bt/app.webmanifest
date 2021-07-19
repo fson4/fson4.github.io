@@ -1,0 +1,14 @@
+{
+	"name": "Backwards Task",
+	"short_name": "Backwards",
+	"description": "A web application memory test",
+	"start_url": "https://fson4.github.io/bt/",
+	"scope": "https://fson4.github.io/bt/",
+	"display": "standalone",
+	"background_color": "#000",
+	"theme_color": "#000",
+	"icons": [
+		{ "src": "resource/img/icon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any maskable" },
+		{ "src": "resource/img/icon.png", "type": "image/png", "sizes": "192x192 512x512", "purpose": "any maskable" }
+	]
+}

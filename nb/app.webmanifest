@@ -1,0 +1,14 @@
+{
+	"name": "N-back Task",
+	"short_name": "N-back Task",
+	"description": "A web application n-back memory test",
+	"start_url": "https://fson4.github.io/nb/",
+	"scope": "https://fson4.github.io/nb/",
+	"display": "standalone",
+	"background_color": "#999",
+	"theme_color": "#000",
+	"icons": [
+		{ "src": "resource/img/icon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any maskable" },
+		{ "src": "resource/img/icon.png", "type": "image/png", "sizes": "192x192 512x512", "purpose": "any maskable" }
+	]
+}

@@ -1,0 +1,88 @@
+html, body { width: 100%; height: 100%; font: 400 16px/1.2 inter, sans-serif; background: #999; color: #fff; text-align: center; cursor: default; touch-action: none; -webkit-user-select: none; user-select: none; overflow: hidden }
+body, ul, ol, p { padding: 0; margin: 0 }
+body { display: grid; grid-template: 30% 40% 30% / 20% 60% 20%; place-items: end center }
+.marked::before, .shape .box::after, .symbol .box::after, .circle::after, li::before, .screen::after { position: absolute }
+.marked::before, .shape .box::after, .screen::after { content: "" }
+
+.grid { grid-template: repeat(5, 1fr) / repeat(8, 1fr); height: 85%; --box: 104px; font-weight: 500; font-size: var(--box) }
+.box, .buttons li { border-radius: .2em }
+.box, .marked::before, .shape .box::after, .symbol .box::after { width: var(--box); height: var(--box); text-align: left }
+.marked::before { border: .07em solid #000; border-radius: 50%; box-sizing: border-box; transform: scale(1.8); z-index: 10 }
+.color-1 { background: #0f0 }
+.color-2 { background: #f00 }
+.color-3 { background: #00f }
+.color-4 { background: #ff0 }
+.color-5 { background: #707 }
+.color-6 { background: #fff }
+.color-7 { background: #000 }
+.shape .box::after { background: #444 }
+.shape-1::after { clip-path: polygon(0 33%, 33% 33%, 33% 0, 67% 0, 67% 33%, 100% 33%, 100% 67%, 67% 67%, 67% 100%, 33% 100%, 33% 67%, 0 67%) }
+.shape-2::after { clip-path: polygon(4% 95%, 48% 50%, 4% 5%, 96% 5%, 52% 50%, 96% 95%) }
+.shape-3::after { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); transform: scale(1.1) }
+.shape-4::after { clip-path: polygon(32% 5%, 68% 5%, 95% 32%, 95% 68%, 68% 95%, 32% 95%, 5% 68%, 5% 32%) }
+.shape-5::after { clip-path: polygon(5% 5%, 5% 95%, 25% 95%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 95%, 95% 95%, 95% 5%) }
+.shape-6::after { clip-path: polygon(20% 0, 0 20%, 30% 50%, 0 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0, 50% 30%) }
+.shape-7::after { clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); transform: scale(1.2) }
+.symbol .box::after { text-align: center; color: #444; font-family: noto, sans-serif; line-height: .9 }
+.symbol-1::after { content: "道" }
+.symbol-2::after { content: "解" }
+.symbol-3::after { content: "禅" }
+.symbol-4::after { content: "地" }
+.symbol-5::after { content: "諦" }
+.symbol-6::after { content: "槃" }
+.symbol-7::after { content: "涅" }
+.buttons { position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 0); font-size: .4em; z-index: 100 }
+.buttons li { display: inline-block; width: 4em; margin: 0 1em; line-height: 1.5em; border: 2px solid }
+.true { background: #080 }
+.false { background: #d00 }
+
+.setting { grid-area: 1 / 1; place-self: start; margin: 16px 0 0 16px; z-index: 10 }
+.speaker { grid-area: 1 / 2; place-self: start center; margin: 16px 0 0 }
+.alt { grid-area: 1 / 3; place-self: start end; margin: 16px 16px 0 0 }
+.result { grid-area: 2 / 2; place-self: start center }
+.help { grid-area: 3 / 1; place-self: end start; margin: 0 0 16px 16px }
+.circle { grid-area: 3 / 2; margin: 0 0 16px }
+.screen { grid-area: 3 / 3; place-self: end; margin: 0 16px 16px 0 }
+p, ul { white-space: nowrap }
+p, .result { background: #456; color: #ff6; border: 1px solid #fff9 }
+p, .result li { text-shadow: .12em .1em 0 #000 }
+p { min-width: 2.1em; line-height: 2; font-size: 1.5em; border-radius: .2em }
+ol, ul { list-style: none }
+ol { text-align: left }
+ol { counter-reset: ol; margin: .5em 1.7em .9em 2.5em; color: #fff; font-size: .83em; line-height: 1.7; font-weight: 400 }
+ol li::before { counter-increment: ol; content: counter(ol) "."; margin-left: -1.7em; text-align: right; width: 1em }
+.help { font-weight: 500; z-index: 10 }
+.speaker { font-size: 1.6em; text-shadow: 0.12em 0.12em 0 #777 }
+.setting, .alt { width: 4.8em; font-size: 1.9em; line-height: 1.6 }
+.screen { position: relative; width: 32px; height: 32px; box-sizing: border-box; border: 4px solid #ff6; transform-origin: bottom right }
+.screen::after { top: -5px; left: -5px; width: 34px; height: 34px; background: #999; clip-path: polygon(0 31%, 31% 31%, 31% 0, 69% 0, 69% 31%, 100% 31%, 100% 69%, 69% 69%, 69% 100%, 31% 100%, 31% 69%, 0 69%) }
+.result { margin-top: -1em; font-size: 1.2em; border: .1em solid; border-radius: .8em; box-shadow: 0 0 6em #222, 0 0 2em #555 }
+.result.success  { margin-top: -2.5em }
+.result li { margin: .6em 1em; font-size: 1.7em; font-weight: 640 }
+.result li:nth-child(1) { font-size: 2em; font-variant: no-contextual }
+.result li:nth-child(2) { margin-top: -.1em }
+.circle { --circle: 156px; --fill: radial-gradient(#999 53%, transparent 54%); width: var(--circle); height: var(--circle); border-radius: 50%; background: var(--fill), #fff }
+p.active, p.active ol { color: #666 }
+.screen.active { border-color: #444 }
+.circle.active { background: var(--fill), #444 }
+.buttons li.active { color: #444 }
+
+@media (orientation: portrait) { .grid { grid-template: repeat(8, 1fr) / repeat(5, 1fr) } .buttons { bottom: 28px }}
+@media (max-width: 1600px) {
+.grid { --box: 72px }
+p { font-size: 1.2em }
+.speaker { font-size: 1.3em }
+.setting, .alt { font-size: 1.5em }
+.screen { transform: scale(.8125) }
+.result { font-size: 1em }
+.circle { --circle: 120px }
+}
+@media (max-width: 1020px) {
+.grid { --box: 40px }
+.setting, .alt { font-size: 1.4em }
+.buttons { font-size: .6em }
+.result { font-size: .84em }
+.circle { --circle: 94px }
+}
+@media (min-width: 760px) and (max-width: 1020px) and (min-height: 600px) { .grid { --box: 56px } .buttons { font-size: .5em }}
+@media (min-width: 1200px) and (max-width: 1600px) and (min-height: 1020px) { .grid { --box: 80px }}
